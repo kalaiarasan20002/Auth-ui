@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auth UI + Validation (HTML/CSS/JS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Auth UI</h1>
+      <p>Login • Signup • Forgot Password (Front-end + Validation)</p>
+    </header>
+
+    <section class="card">
+      <nav class="tabs" aria-label="Authentication tabs">
+        <button class="tab active" data-view="login" type="button">Login</button>
+        <button class="tab" data-view="signup" type="button">Sign Up</button>
+        <button class="tab" data-view="forgot" type="button">Forgot</button>
+      </nav>
+
+      <div class="alert" id="alert" role="status" aria-live="polite"></div>
+
+      <!-- LOGIN -->
+      <form id="loginForm" class="view active" novalidate>
+        <div class="field">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+          <small class="hint" data-error-for="loginEmail"></small>
+        </div>
+
+        <div class="field">
+          <label for="loginPassword">Password</label>
+          <div class="passwordRow">
+            <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="••••••••" />
+            <button class="ghost" type="button" data-toggle="loginPassword" aria-label="Toggle password visibility">Show</button>
+          </div>
+          <small class="hint" data-error-for="loginPassword"></small>
+        </div>
+
+        <div class="row">
+          <label class="checkbox">
+            <input type="checkbox" id="rememberMe" />
+            Remember me
+          </label>
+
+          <button class="link" type="button" data-switch="forgot">Forgot password?</button>
+        </div>
+
+        <button class="btn" type="submit">Login</button>
+
+        <p class="footerText">
+          Don’t have an account?
+          <button class="link" type="button" data-switch="signup">Create one</button>
+        </p>
+      </form>
+
+      <!-- SIGNUP -->
+      <form id="signupForm" class="view" novalidate>
+        <div class="field">
+          <label for="signupName">Full Name</label>
+          <input id="signupName" name="name" type="text" autocomplete="name" placeholder="Kalai Arasan" />
+          <small class="hint" data-error-for="signupName"></small>
+        </div>
+
+        <div class="field">
+          <label for="signupEmail">Email</label>
+          <input id="signupEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+          <small class="hint" data-error-for="signupEmail"></small>
+        </div>
+
+        <div class="field">
+          <label for="signupPassword">Password</label>
+          <div class="passwordRow">
+            <input id="signupPassword" name="password" type="password" autocomplete="new-password" placeholder="Min 8 chars" />
+            <button class="ghost" type="button" data-toggle="signupPassword" aria-label="Toggle password visibility">Show</button>
+          </div>
+
+          <div class="strength">
+            <div class="strengthBar" id="strengthBar"></div>
+          </div>
+          <p class="rules">
+            Must include <b>8+</b> chars, <b>1 uppercase</b>, <b>1 lowercase</b>, <b>1 number</b>, <b>1 symbol</b>.
+          </p>
+
+          <small class="hint" data-error-for="signupPassword"></small>
+        </div>
+
+        <div class="field">
+          <label for="signupConfirm">Confirm Password</label>
+          <div class="passwordRow">
+            <input id="signupConfirm" name="confirm" type="password" autocomplete="new-password" placeholder="Repeat password" />
+            <button class="ghost" type="button" data-toggle="signupConfirm" aria-label="Toggle password visibility">Show</button>
+          </div>
+          <small class="hint" data-error-for="signupConfirm"></small>
+        </div>
+
+        <button class="btn" type="submit">Create account</button>
+
+        <p class="footerText">
+          Already have an account?
+          <button class="link" type="button" data-switch="login">Login</button>
+        </p>
+      </form>
+
+      <!-- FORGOT -->
+      <form id="forgotForm" class="view" novalidate>
+        <div class="field">
+          <label for="forgotEmail">Email</label>
+          <input id="forgotEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+          <small class="hint" data-error-for="forgotEmail"></small>
+        </div>
+
+        <p class="footerText">
+          This demo doesn’t send emails. It validates the request and shows a success state.
+        </p>
+
+        <button class="btn" type="submit">Send reset link</button>
+
+        <p class="footerText">
+          Back to
+          <button class="link" type="button" data-switch="login">Login</button>
+        </p>
+      </form>
+    </section>
+
+    <footer class="credits">
+      <span>Client-side demo • Uses localStorage</span>
+      <button id="resetDemo" class="ghost" type="button">Reset demo data</button>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
