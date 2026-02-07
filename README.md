@@ -30,3 +30,18 @@ If you have VS Code:
 2. Right click `index.html` → **Open with Live Server**
 
 ## Project Structure
+     auth-ui-validation/
+index.html
+styles.css
+app.js
+
+## Notes (Important)
+- This is not production auth.
+- Do NOT use client-side storage for real passwords.
+- For a real system, use Node/Express + DB + bcrypt + sessions/JWT.
+
+## Screenshots
+(Add screenshots here)
+
+## License
+MIT
